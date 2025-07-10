@@ -9,32 +9,60 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "slideshow_AM8mJJ": {
+      "type": "slideshow",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "slide_FgAgUa": {
+          "type": "slide",
           "settings": {
-            "heading": "",
-            "heading_size": "h0"
+            "image": "shopify://shop_images/Hands_Magic_Desktop.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "bottom-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        },
+        "slide_R7hQwK": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Artboard_1_1.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "bottom-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
           }
         }
       },
       "block_order": [
-        "heading"
+        "slide_FgAgUa",
+        "slide_R7hQwK"
       ],
+      "name": "t:sections.slideshow.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Artboard_1_1.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
         "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
+        "show_text_below": true,
+        "accessibility_info": ""
       }
     },
     "featured_collection": {
@@ -51,8 +79,8 @@
         "enable_desktop_slider": true,
         "full_width": true,
         "show_view_all": false,
-        "view_all_style": "outline",
-        "color_scheme": "scheme-2",
+        "view_all_style": "solid",
+        "color_scheme": "scheme-3",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -67,7 +95,7 @@
     }
   },
   "order": [
-    "image_banner",
+    "slideshow_AM8mJJ",
     "featured_collection"
   ]
 }
