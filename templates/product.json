@@ -55,7 +55,12 @@
             "heading": "Description",
             "icon": "none",
             "content": "{{ product.description }}",
-            "page": ""
+            "page": "",
+            "header_bg": "#efac69",
+            "header_text": "#000000",
+            "content_bg": "#ffffff",
+            "content_text": "#333333",
+            "border_color": "#e1e1e1"
           }
         },
         "description": {
@@ -69,7 +74,12 @@
             "heading": "How to Use",
             "icon": "none",
             "content": "",
-            "page": ""
+            "page": "",
+            "header_bg": "#efac69",
+            "header_text": "#000000",
+            "content_bg": "#ffffff",
+            "content_text": "#333333",
+            "border_color": "#e1e1e1"
           }
         },
         "collapsible_tab_48mykV": {
@@ -78,7 +88,12 @@
             "heading": "Key Ingredient",
             "icon": "none",
             "content": "",
-            "page": ""
+            "page": "",
+            "header_bg": "#efac69",
+            "header_text": "#000000",
+            "content_bg": "#ffffff",
+            "content_text": "#333333",
+            "border_color": "#e1e1e1"
           }
         },
         "share": {

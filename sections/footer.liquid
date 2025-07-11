@@ -299,10 +299,23 @@
     </div>
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright caption">
-        <small class="copyright__content"
+        <!-- <small class="copyright__content"
           >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
         </small>
-        <!-- <small class="copyright__content">{{ powered_by_link }}</small> -->
+         <small class="copyright__content">{{ powered_by_link }}</small> -->
+        <!-- Here code changes by dheeraj singh and in schema seach copyright_text ,copyright_text_alignment these two schema changes -->
+       {% if section.settings.copyright_text %}
+  <div style="width: 100%;">
+    <div style="text-align: {{ section.settings.copyright_text_alignment }};">
+      <small class="copyright__content" style="display: inline-block;">
+        {{ section.settings.copyright_text }}
+      </small>
+    </div>
+  </div>
+{% endif %}
+
+
+
         {%- if section.settings.show_policy -%}
           <ul class="policies list-unstyled">
             {%- for policy in shop.policies -%}
@@ -529,7 +542,35 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+     
+    {
+
+  "type": "textarea",
+  "id": "copyright_text",
+  "label": "Copyright Text",
+  "default": "© 2025. All rights reserved | by Epic Web service."
+},
+    {
+  "type": "select",
+  "id": "copyright_text_alignment",
+  "label": "Copyright Text Alignment",
+  "options": [
+    {
+      "value": "left",
+      "label": "Left Align"
+    },
+    {
+      "value": "right",
+      "label": "Right Align"
+    },
+    {
+      "value": "center",
+      "label": "Center"
     }
+  ],
+  "default": "center"
+}
   ],
   "default": {
     "blocks": [

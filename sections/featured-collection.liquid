@@ -29,7 +29,12 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
+    #collection-{{ section.id }} .product-grid {
+    gap: {{ section.settings.card_gap | default: 24 }}px;
+  }
 
+
+  
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -356,6 +361,16 @@
     {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header.content"
+    },
+     {
+      "type": "range",
+      "id": "card_gap",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "default": 24,
+      "unit": "px",
+      "label": "Card spacing"
     },
     {
       "type": "select",

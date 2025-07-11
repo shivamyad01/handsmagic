@@ -1,8 +1,21 @@
 .accordion summary {
   display: flex;
   position: relative;
-  line-height: 1;
-  padding: 1.5rem 0;
+  line-height: 1.5;
+  padding: 1.8rem 2.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-items: center;
+  background-color: var(--header-bg, #fff);
+  color: var(--header-text, inherit);
+}
+
+.accordion summary:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--header-bg, #fff) 90%,
+    var(--header-text, #000)
+  );
 }
 
 .accordion .summary__title {
@@ -12,26 +25,44 @@
 
 .accordion .summary__title + .icon-caret {
   height: calc(var(--font-heading-scale) * 0.6rem);
+  margin-left: auto;
+  transition: transform 0.3s ease;
+  opacity: 0.7;
 }
 
 .accordion + .accordion {
-  margin-top: 0;
-  border-top: none;
+  margin-top: 1.5rem;
 }
 
 .accordion {
-  margin-top: 2.5rem;
-  margin-bottom: 0;
-  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--border-color, rgba(var(--color-foreground), 0.1));
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: var(--content-bg, #fff);
+}
+
+.accordion:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--border-color, rgba(var(--color-foreground), 0.1)) 80%,
+    #000
+  );
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .accordion__title {
   display: inline-block;
-  max-width: calc(100% - 6rem);
+  max-width: calc(100% - 3rem);
   min-height: 1.6rem;
   margin: 0;
   word-break: break-word;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--header-text, rgba(var(--color-foreground), 0.9));
+  transition: color 0.2s ease;
 }
 
 .accordion .svg-wrapper {
@@ -47,10 +78,36 @@
 }
 
 .accordion__content {
-  margin-bottom: 1.5rem;
+  margin: 0;
   word-break: break-word;
   overflow-x: auto;
-  padding: 0 0.6rem;
+  padding: 0 2.5rem 2.5rem;
+  color: var(--content-text, rgba(var(--color-foreground), 0.85));
+  line-height: 1.7;
+  background-color: var(--content-bg, #fff);
+  border-top: 1px solid var(--border-color, rgba(var(--color-foreground), 0.1));
+}
+
+.accordion__content p:first-child {
+  margin-top: 0;
+}
+
+.accordion__content p:last-child {
+  margin-bottom: 0;
+}
+
+.accordion__content ul,
+.accordion__content ol {
+  padding-left: 2rem;
+  margin: 1.5rem 0;
+}
+
+.accordion__content li {
+  margin-bottom: 0.8rem;
+}
+
+.accordion__content li:last-child {
+  margin-bottom: 0;
 }
 
 .accordion__content img {
