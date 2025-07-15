@@ -1,0 +1,596 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'shoppable-video.css' | asset_url | stylesheet_tag }}
+
+<script>
+  class ShoppableVideo extends HTMLElement {
+    constructor() {
+      super();
+      this.video = this.querySelector('video');
+      this.product = JSON.parse(this.closest('.shoppable-video__item').dataset.product);
+      this.handleKeyDown = this.handleKeyDown.bind(this);
+      this.initializeVideo();
+      this.setupClickHandlers();
+    }
+
+    initializeVideo() {
+      if (!this.video) return;
+      this.initIntersectionObserver();
+    }
+
+    setupClickHandlers() {
+      this.addEventListener('click', () => this.openPopup());
+    }
+
+    openPopup() {
+      // Close any existing popup
+      this.closePopup();
+
+      // Create popup container
+      const popup = document.createElement('div');
+      popup.id = 'video-popup';
+      popup.className = 'video-popup';
+        // Create popup HTML
+        popup.innerHTML = `
+          <div class="video-popup__overlay">
+            <div class="video-popup__container">
+              <button class="video-popup__close" aria-label="Close">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 6L6 18M6 6l12 12"></path>
+                </svg>
+              </button>
+              <div class="popup-content">
+                <div class="popup-video">
+                  <video autoplay muted loop playsinline></video>
+                </div>
+                <div class="popup-product">
+                  <div class="product-details">
+                    <h2 class="product-details__title">${this.product.title || ''}</h2>
+                    <div class="product-details__price">
+                      <span class="price--current">${this.product.price || ''}</span>
+                      ${this.product.compare_at_price ? `<span class="price--compare">${this.product.compare_at_price}</span>` : ''}
+                    </div>
+                    <div class="product-details__description">${this.product.description || ''}</div>
+                    <a href="${this.product.url || '#'}" class="button button--primary">View Product</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <style>
+            .video-popup {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.8);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              z-index: 1000;
+              opacity: 0;
+              visibility: hidden;
+              transition: all 0.3s ease;
+            }
+            .video-popup.active {
+              opacity: 1;
+              visibility: visible;
+            }
+            .video-popup__container {
+              position: relative;
+              width: 90%;
+              max-width: 1200px;
+              background: #fff;
+              border-radius: 8px;
+              overflow: hidden;
+              max-height: 90vh;
+              display: flex;
+            }
+            .popup-content {
+              display: flex;
+              width: 100%;
+            }
+            .popup-video {
+              flex: 1;
+              background: #000;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .popup-video video {
+              max-width: 100%;
+              max-height: 100%;
+              object-fit: contain;
+            }
+            .popup-product {
+              width: 400px;
+              padding: 2rem;
+              overflow-y: auto;
+            }
+            .product-details__title {
+              margin: 0 0 1rem;
+              font-size: 1.5rem;
+              color: #333;
+            }
+            .product-details__price {
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 1.5rem;
+              color: #2e2e2e;
+            }
+            .price--compare {
+              text-decoration: line-through;
+              opacity: 0.7;
+              margin-left: 0.5rem;
+              font-size: 1rem;
+            }
+            .product-details__description {
+              margin-bottom: 2rem;
+              line-height: 1.6;
+              color: #555;
+            }
+            .video-popup__close {
+              position: absolute;
+              top: 15px;
+              right: 15px;
+              background: rgba(255, 255, 255, 0.9);
+              border: none;
+              width: 36px;
+              height: 36px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              z-index: 10;
+              padding: 0;
+              transition: all 0.2s ease;
+            }
+            .video-popup__close:hover {
+              background: #fff;
+              transform: scale(1.1);
+            }
+            @media (max-width: 992px) {
+              .popup-content {
+                flex-direction: column;
+              }
+              .popup-video {
+                height: 40%;
+              }
+              .popup-product {
+                width: 100%;
+                height: 60%;
+                padding: 1.5rem;
+              }
+            }
+          </style>
+        `;
+        document.body.appendChild(popup);
+        
+        // Close popup when clicking outside or on close button
+        popup.addEventListener('click', (e) => {
+          if (e.target === popup || e.target.closest('.video-popup__close')) {
+            this.closePopup();
+          }
+        });
+      }
+
+      // Set up video
+      const videoSource = this.video.querySelector('source')?.src;
+      const popupVideo = popup.querySelector('video');
+      if (videoSource) {
+        popupVideo.innerHTML = `<source src="${videoSource}" type="video/mp4">`;
+        
+        // Copy video attributes
+        Array.from(this.video.attributes).forEach(attr => {
+          if (!['id', 'class', 'style', 'src'].includes(attr.name)) {
+            popupVideo.setAttribute(attr.name, attr.value);
+          }
+        });
+      }
+
+      // Add to DOM
+      document.body.appendChild(popup);
+      
+      // Show popup with animation
+      requestAnimationFrame(() => {
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Play video
+        if (popupVideo) {
+          popupVideo.play().catch(e => console.error('Error playing video:', e));
+        }
+      });
+      
+      // Event delegation for close button and overlay
+      popup.addEventListener('click', (e) => {
+        if (e.target === popup || e.target.closest('.video-popup__close')) {
+          e.preventDefault();
+          this.closePopup();
+        }
+      });
+      
+      // Handle keyboard navigation
+      document.addEventListener('keydown', this.handleKeyDown);
+    }
+
+    handleKeyDown(e) {
+      if (e.key === 'Escape') {
+        this.closePopup();
+      }
+    }
+
+    closePopup() {
+      const popup = document.getElementById('video-popup');
+      if (!popup) return;
+      
+      // Pause video
+      const video = popup.querySelector('video');
+      if (video) video.pause();
+      
+      // Clean up event listeners
+      document.removeEventListener('keydown', this.handleKeyDown);
+      
+      // Hide with animation
+      popup.classList.remove('active');
+      document.body.style.overflow = '';
+      
+      // Remove from DOM after animation
+      setTimeout(() => {
+        if (popup && popup.parentNode) {
+          popup.parentNode.removeChild(popup);
+        }
+      }, 300);
+    }
+
+    initIntersectionObserver() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const playPromise = this.video.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(error => {
+                console.error('Autoplay failed:', error);
+              });
+            }
+          } else {
+            this.video.pause();
+            this.video.currentTime = 0;
+          }
+        });
+      }, { threshold: 0.7 });
+
+      observer.observe(this);
+    }
+  }
+
+  customElements.define('shoppable-video-item', ShoppableVideo);
+</script>
+
+<div class="shoppable-video-section color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {%- if section.settings.title != blank -%}
+      <div class="shoppable-video__header">
+        <h2 class="shoppable-video__title">{{ section.settings.title | escape }}</h2>
+      </div>
+    {%- endif -%}
+
+    <div class="shoppable-video__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.video != blank and block.settings.product != blank -%}
+          {%- assign product = all_products[block.settings.product] -%}
+          {%- if product != blank -%}
+            <shoppable-video-item
+              class="shoppable-video__item"
+              data-product='{
+                "title": "{{ product.title | escape }}",
+                "price": "{{ product.price | money }}",
+                {% if product.compare_at_price > product.price %}
+                "compare_at_price": "{{ product.compare_at_price | money }}",
+                {% endif %}
+                "description": {{ product.description | strip_html | json }},
+                "url": "{{ product.url }}",
+                "image": "{{ product.featured_image | image_url: width: 800 }}"
+              }'
+              {{ block.shopify_attributes }}>
+              <div class="video-container">
+                <video
+                  class="shoppable-video__uploaded"
+                  playsinline
+                  muted
+                  loop
+                  autoplay
+                  preload="auto"
+                  webkit-playsinline="true"
+                  x5-playsinline="true"
+                  x5-video-player-type="h5"
+                  x5-video-player-fullscreen="true"
+                  {% if block.settings.video.alt != blank %}
+                  aria-label="{{ block.settings.video.alt | escape }}"
+                  {% endif %}>
+                  {% if block.settings.video.sources %}
+                    {% for source in block.settings.video.sources %}
+                      <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                    {% endfor %}
+                  {% else %}
+                    <source src="{{ block.settings.video | file_url }}" type="{{ block.settings.video.mime_type | default: 'video/mp4' }}">
+                  {% endif %}
+                  Your browser does not support the video tag.
+                </video>
+                <div class="shoppable-video__overlay">
+                  <a href="{{ product.url }}" class="product-preview">
+                    <div class="product-preview__image">
+                      {%- if product.featured_image -%}
+                        <img
+                          src="{{ product.featured_image | image_url: width: 120, height: 120, crop: 'center' }}"
+                          alt="{{ product.featured_image.alt | escape }}"
+                          loading="lazy"
+                          width="60"
+                          height="60">
+                      {%- endif -%}
+                    </div>
+                    <div class="product-preview__info">
+                      <h3 class="product-preview__title">{{ product.title | escape }}</h3>
+                      <div class="price">
+                        <span class="price--current">{{ product.price | money }}</span>
+                        {%- if product.compare_at_price > product.price -%}
+                          <span class="price--compare">{{ product.compare_at_price | money }}</span>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </shoppable-video-item>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Shoppable Videos",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Shop the Look",
+        "label": "Heading"
+      }, {
+        "type": "select",
+        "id": "color_scheme",
+        "options": [
+          {
+            "value": "accent-1",
+            "label": "Accent 1"
+          },
+          {
+            "value": "accent-2",
+            "label": "Accent 2"
+          },
+          {
+            "value": "background-1",
+            "label": "Background 1"
+          },
+          {
+            "value": "background-2",
+            "label": "Background 2"
+          }, {
+            "value": "inverse",
+            "label": "Inverse"
+          }
+        ],
+        "default": "background-1",
+        "label": "Color scheme"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "video",
+        "name": "Video with Product",
+        "settings": [
+          {
+            "type": "video",
+            "id": "video",
+            "label": "Video",
+            "info": "Upload an MP4 file (recommended under 20MB for best performance)"
+          }, {
+            "type": "product",
+            "id": "product",
+            "label": "Related Product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Shoppable Videos",
+        "blocks": [
+          {
+            "type": "video"
+          }, {
+            "type": "video"
+          }, {
+            "type": "video"
+          }, {
+            "type": "video"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+<style>
+  .shoppable-video-section {
+    padding: 4rem 2rem;
+    background: #f8f8f8;
+  }
+
+  .shoppable-video__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .shoppable-video__title {
+    margin: 0 0 1rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .shoppable-video__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .shoppable-video__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .shoppable-video__grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+  }
+
+  shoppable-video-item {
+    display: block;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease
+    , box-shadow 0.3s ease;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #000;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .shoppable-video__item:hover {
+    transform: scale(1.02);
+  }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    background-color: #000;
+  }
+
+  .video-container video[poster] {
+    background-color: transparent;
+  }
+
+  .shoppable-video__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0) 100%);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    backdrop-filter: blur(5px);
+  }
+
+  .product-preview {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.8rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-preview__image {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .product-preview__info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .product-preview__title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 0.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .price {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .price--current {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .price--compare {
+    font-size: 1.2rem;
+    color: #999;
+    text-decoration: line-through;
+  }
+
+  @media screen and (max-width: 749px) {
+    .shoppable-video__grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 1rem 1.5rem;
+      margin: 0 -1.5rem;
+      scrollbar-width: none; /* Firefox */
+    }
+    
+    .shoppable-video__grid::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    
+    .shoppable-video__item {
+      flex: 0 0 85%;
+      max-width: 320px;
+      margin-right: 1.5rem;
+      scroll-snap-align: start;
+    }
+    
+    .shoppable-video__item:last-child {
+      margin-right: 0;
+    }
+  }
+
+</style>

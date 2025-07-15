@@ -8,6 +8,45 @@
 {%- style -%}
   .footer {
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    {% if section.settings.madhubani_pattern_desktop %}
+      background-image: url({{ section.settings.madhubani_pattern_desktop | img_url: '2000x' }});
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 0;
+      pointer-events: none;
+    {% endif %}
+  }
+
+  @media screen and (max-width: 749px) {
+    .footer::before {
+      {% if section.settings.madhubani_pattern_mobile %}
+        background-image: url({{ section.settings.madhubani_pattern_mobile | img_url: '1000x' }});
+        background-size: cover;
+        background-position: center;
+      {% elsif section.settings.madhubani_pattern_desktop %}
+        background-image: url({{ section.settings.madhubani_pattern_desktop | img_url: '1000x' }});
+        background-size: cover;
+        background-position: center;
+      {% endif %}
+    }
+  }
+
+  .footer__content-top,
+  .footer__content-bottom {
+    position: relative;
+    z-index: 1;
   }
 
   .section-{{ section.id }}-padding {
@@ -303,15 +342,10 @@
           >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
         </small>
          <small class="copyright__content">{{ powered_by_link }}</small> -->
-        <!-- Here code changes by dheeraj singh and in schema seach copyright_text ,copyright_text_alignment these two schema changes -->
        {% if section.settings.copyright_text %}
-  <div style="width: 100%;">
-    <div style="text-align: {{ section.settings.copyright_text_alignment }};">
-      <small class="copyright__content" style="display: inline-block;">
+      <small class="copyright__content">
         {{ section.settings.copyright_text }}
       </small>
-    </div>
-  </div>
 {% endif %}
 
 
@@ -438,6 +472,18 @@
   ],
   "settings": [
     {
+      "type": "image_picker",
+      "id": "madhubani_pattern_desktop",
+      "label": "Desktop Pattern Image",
+      "info": "Upload a Madhubani pattern for desktop (2000x800px recommended)"
+    },
+    {
+      "type": "image_picker",
+      "id": "madhubani_pattern_mobile",
+      "label": "Mobile Pattern Image (Optional)",
+      "info": "Upload a different Madhubani pattern for mobile (1000x1000px recommended)"
+    },
+    {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
@@ -549,27 +595,6 @@
   "type": "textarea",
   "id": "copyright_text",
   "label": "Copyright Text",
-  "default": "© 2025. All rights reserved | by Epic Web service."
-},
-    {
-  "type": "select",
-  "id": "copyright_text_alignment",
-  "label": "Copyright Text Alignment",
-  "options": [
-    {
-      "value": "left",
-      "label": "Left Align"
-    },
-    {
-      "value": "right",
-      "label": "Right Align"
-    },
-    {
-      "value": "center",
-      "label": "Center"
-    }
-  ],
-  "default": "center"
 }
   ],
   "default": {

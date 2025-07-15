@@ -53,7 +53,69 @@
         "slide_FgAgUa",
         "slide_R7hQwK"
       ],
-      "name": "t:sections.slideshow.presets.name",
+      "custom_css": [
+        "@media screen and (max-width: 750px) {.banner, .slideshow-component {display: none; }}"
+      ],
+      "name": "Slideshow : destop",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": ""
+      }
+    },
+    "slideshow_wccf3g": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_DjwXBF": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Hands_Magic_Mobile.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "bottom-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        },
+        "slide_kqaUye": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Dal_Bari_Mobile.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "bottom-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_DjwXBF",
+        "slide_kqaUye"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.banner, .slideshow-component {display: none; }}"
+      ],
+      "name": "mobile view",
       "settings": {
         "layout": "full_bleed",
         "slide_height": "adapt_image",
@@ -77,14 +139,14 @@
         "description_style": "body",
         "columns_desktop": 4,
         "enable_desktop_slider": true,
-        "full_width": true,
+        "full_width": false,
         "show_view_all": false,
-        "view_all_style": "solid",
+        "view_all_style": "link",
         "color_scheme": "scheme-3",
-        "card_gap": 28,
-        "image_ratio": "square",
+        "card_gap": 36,
+        "image_ratio": "portrait",
         "image_shape": "default",
-        "show_secondary_image": true,
+        "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": true,
         "quick_add": "standard",
@@ -97,6 +159,7 @@
   },
   "order": [
     "slideshow_AM8mJJ",
+    "slideshow_wccf3g",
     "featured_collection"
   ]
 }
