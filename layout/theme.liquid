@@ -372,5 +372,12 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+       <style>
+product-form .quick-add__submit,
+product-form .product-form__submit{
+    background: #005B41;
+    color: #fff;
+}
+</style>
   </body>
 </html>

@@ -9,40 +9,44 @@
  */
 {
   "sections": {
-    "slideshow_AM8mJJ": {
+    "slideshow_WJhqdm": {
       "type": "slideshow",
       "blocks": {
-        "slide_FgAgUa": {
+        "slide_BCafxm": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Hands_Magic_Desktop.jpg",
-            "image_overlay_opacity": 0,
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "bottom-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": ""
-          }
-        },
-        "slide_R7hQwK": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Artboard_1_1.jpg",
-            "image_overlay_opacity": 0,
+            "desktop_image": "shopify://shop_images/Hands_Magic_Desktop.jpg",
+            "mobile_image": "shopify://shop_images/Hands_Magic_Mobile.jpg",
+            "desktop_image_overlay_opacity": 100,
+            "mobile_image_overlay_opacity": 100,
             "heading": "Image slide",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
             "link": "",
             "button_style_secondary": false,
-            "show_text_box": false,
-            "box_align": "bottom-center",
+            "show_text_box": true,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        },
+        "slide_Jwmymn": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Artboard_1_1.jpg",
+            "mobile_image": "shopify://shop_images/Dal_Bari_Mobile.jpg",
+            "desktop_image_overlay_opacity": 100,
+            "mobile_image_overlay_opacity": 100,
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-center",
             "text_alignment": "center",
             "text_alignment_mobile": "center",
             "color_scheme": ""
@@ -50,58 +54,155 @@
         }
       },
       "block_order": [
-        "slide_FgAgUa",
-        "slide_R7hQwK"
+        "slide_BCafxm",
+        "slide_Jwmymn"
       ],
-      "custom_css": [
-        "@media screen and (max-width: 750px) {.banner, .slideshow-component {display: none; }}"
-      ],
-      "name": "Slideshow : destop",
+      "name": "t:sections.slideshow.presets.name",
       "settings": {
         "layout": "full_bleed",
         "slide_height": "adapt_image",
-        "slider_visual": "dots",
+        "slider_visual": "counter",
         "auto_rotate": true,
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": true,
-        "accessibility_info": ""
+        "accessibility_info": "Slideshow about our brand"
       }
     },
-    "slideshow_wccf3g": {
-      "type": "slideshow",
+    "collection_list_Nji6VQ": {
+      "type": "collection-list",
       "blocks": {
-        "slide_DjwXBF": {
-          "type": "slide",
+        "featured_collection_qyJGte": {
+          "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/Hands_Magic_Mobile.jpg",
-            "image_overlay_opacity": 0,
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "bottom-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": ""
+            "collection": "traditional-bari"
           }
         },
-        "slide_kqaUye": {
+        "featured_collection_9wMBeQ": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "premium-bari"
+          }
+        },
+        "featured_collection_aKk4pm": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "combo-pack"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_qyJGte",
+        "featured_collection_9wMBeQ",
+        "featured_collection_aKk4pm"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Shop By Category",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_FqKXtJ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_T6DdgT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Cooking with Hands'Magic",
+            "heading_size": "h2"
+          }
+        },
+        "text_RyKAdE": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>From grandma’s kitchen to yours — tasty, crunchy, and hearty recipes with Hands Magic Dal Bari. Made by us, loved by you!</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_T6DdgT",
+        "text_RyKAdE"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-8a72f1d3-cda3-4533-9eda-16c0958b91bb",
+        "full_width": true,
+        "padding_top": 24,
+        "padding_bottom": 20
+      }
+    },
+    "shoppable_video_Pmehce": {
+      "type": "shoppable-video",
+      "blocks": {
+        "video_8aztJB": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Hands Magic video 2.mp4",
+            "product": "hands-magic-chana-dal-plain-bari-protein-rich-ready-to-cook-fried-lentil-dumplings-200g"
+          }
+        },
+        "video_6tGVxR": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Hands Magic Roots.mp4",
+            "product": "premium-hands-magic-chana-dal-plain-bari-authentic-protein-rich-200g"
+          }
+        },
+        "video_t9gKjp": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/hands magic_1.mp4",
+            "product": "premium-hands-magic-mixed-dal-plain-bari-a-perfect-blend-of-nutritious-lentils-200g"
+          }
+        },
+        "video_LNw9bn": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Hands Magic video.mp4",
+            "product": "premium-hands-magic-chana-dal-plain-bari-authentic-protein-rich-200g"
+          }
+        }
+      },
+      "block_order": [
+        "video_8aztJB",
+        "video_6tGVxR",
+        "video_t9gKjp",
+        "video_LNw9bn"
+      ],
+      "name": "Shoppable Videos",
+      "settings": {
+        "title": "Shop the Look",
+        "color_scheme": "accent-1"
+      }
+    },
+    "slideshow_eL3J8T": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_Ldmyi8": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Dal_Bari_Mobile.jpg",
-            "image_overlay_opacity": 0,
+            "desktop_image": "shopify://shop_images/Artboard_2.jpg",
+            "mobile_image": "shopify://shop_images/Mobile.jpg",
+            "desktop_image_overlay_opacity": 100,
+            "mobile_image_overlay_opacity": 100,
             "heading": "Image slide",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
             "link": "",
             "button_style_secondary": false,
-            "show_text_box": false,
-            "box_align": "bottom-center",
+            "show_text_box": true,
+            "box_align": "middle-center",
             "text_alignment": "center",
             "text_alignment_mobile": "center",
             "color_scheme": ""
@@ -109,22 +210,18 @@
         }
       },
       "block_order": [
-        "slide_DjwXBF",
-        "slide_kqaUye"
+        "slide_Ldmyi8"
       ],
-      "custom_css": [
-        "@media screen and (min-width: 750px) {.banner, .slideshow-component {display: none; }}"
-      ],
-      "name": "mobile view",
+      "name": "t:sections.slideshow.presets.name",
       "settings": {
         "layout": "full_bleed",
         "slide_height": "adapt_image",
-        "slider_visual": "dots",
-        "auto_rotate": true,
+        "slider_visual": "counter",
+        "auto_rotate": false,
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": true,
-        "accessibility_info": ""
+        "accessibility_info": "Slideshow about our brand"
       }
     },
     "featured_collection": {
@@ -141,8 +238,8 @@
         "enable_desktop_slider": true,
         "full_width": false,
         "show_view_all": false,
-        "view_all_style": "link",
-        "color_scheme": "scheme-3",
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
         "card_gap": 36,
         "image_ratio": "portrait",
         "image_shape": "default",
@@ -152,14 +249,17 @@
         "quick_add": "standard",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "padding_top": 16,
+        "padding_top": 40,
         "padding_bottom": 16
       }
     }
   },
   "order": [
-    "slideshow_AM8mJJ",
-    "slideshow_wccf3g",
+    "slideshow_WJhqdm",
+    "collection_list_Nji6VQ",
+    "rich_text_FqKXtJ",
+    "shoppable_video_Pmehce",
+    "slideshow_eL3J8T",
     "featured_collection"
   ]
 }

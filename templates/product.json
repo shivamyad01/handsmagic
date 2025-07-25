@@ -12,13 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -34,9 +27,25 @@
             "swatch_shape": "circle"
           }
         },
-        "judge_me_reviews_preview_badge_wpUxnm": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+        "custom_liquid_UxPPRd": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"custom-rating-wrapper\">\n  <div class=\"stars\">\n    {% for i in (1..5) %}\n      {% if i <= 4 %}\n        <svg class=\"star\" viewBox=\"0 0 24 24\" fill=\"#3cba54\" xmlns=\"http://www.w3.org/2000/svg\">\n          <path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z\"/>\n        </svg>\n      {% elsif i == 5 %}\n        <!-- Half star -->\n        <svg class=\"star\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">\n          <defs>\n            <linearGradient id=\"half\">\n              <stop offset=\"50%\" stop-color=\"#3cba54\"/>\n              <stop offset=\"50%\" stop-color=\"#e0e0e0\"/>\n            </linearGradient>\n          </defs>\n          <path fill=\"url(#half)\" d=\"M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z\"/>\n        </svg>\n      {% endif %}\n    {% endfor %}\n  </div>\n  <div class=\"verified-label\">\n    <!-- Blue circular verified check icon -->\n    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"none\" viewBox=\"0 0 24 24\" class=\"verified-check\">\n      <circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#1DA1F2\"/>\n      <path fill=\"#fff\" d=\"M10.001 13.799l-2.115-2.114-1.06 1.06 3.176 3.175 6.363-6.364-1.06-1.06-5.304 5.303z\"/>\n    </svg>\n    <span>389 verified ratings</span>\n  </div>\n</div>\n\n<style>\n.custom-rating-wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin: 12px 0;\n}\n\n.stars {\n  display: flex;\n  gap: 3px;\n}\n\n.star {\n  width: 20px;\n  height: 20px;\n}\n\n.verified-label {\n  display: flex;\n  align-items: center;\n  font-size: 15px;\n  color: #444;\n  font-weight: 500;\n}\n\n.verified-label .verified-check {\n  margin-right: 4px;\n  width: 16px;\n  height: 16px;\n}\n</style>"
+          }
+        },
+        "custom_liquid_Fi3FtY": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"viewer-count\">\n  👁️<span id=\"viewerNumber\">  </span> people watching this product now!\n</div>\n\n<style>\n  @keyframes changeViewerNumber {\n    0% {\n      content: \"95\";\n    }\n  10% {\n      content: \"85\";\n    }\n 20% {\n      content: \"90\";\n    }\n    25% {\n      content: \"92\";\n    }\n  35% {\n      content: \"102\";\n    }\n    50% {\n      content: \"109\";\n    }\n  60% {\n      content: \"81\";\n    }\n    75% {\n      content: \"89\";\n    }\n 75% {\n      content: \"97\";\n    }\n    100% {\n      content: \"110\";\n    }\n  }\n\n  .viewer-count span#viewerNumber::after {\n    content: \"X\";\n    animation: changeViewerNumber 10s infinite;\n  }\n</style>"
+          }
+        },
+        "inventory_winwPz": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
         },
         "quantity_selector": {
           "type": "quantity_selector",
@@ -96,25 +105,63 @@
             "border_color": "#e1e1e1"
           }
         },
+        "icon_with_text_GrtePn": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "image_1": "shopify://shop_images/Quality_checked.png",
+            "heading_1": "Quality Check",
+            "icon_2": "return",
+            "image_2": "shopify://shop_images/Made_in_India_2.png",
+            "heading_2": "Made in India",
+            "icon_3": "truck",
+            "image_3": "shopify://shop_images/10_Happy_Customers.png",
+            "heading_3": "Happy Customers"
+          }
+        },
+        "payment_icons_gm_VJ3VxT": {
+          "type": "payment-icons-gm",
+          "settings": {
+            "paymenticons_headingtext": "Guarantee safe & secure checkout",
+            "fontsize_desktop": 1.4,
+            "fontsize_mobile": 1.2,
+            "paymenticon_width": 6,
+            "paymenticon_widthmobile": 5,
+            "image_gap": 0.4,
+            "image_gapmobile": 0.2,
+            "paymenticon_2": "shopify://shop_images/UPI.jpg",
+            "paymenticon_3": "shopify://shop_images/Google_Pay.jpg",
+            "paymenticon_4": "shopify://shop_images/PhonePe.jpg",
+            "paymenticon_5": "shopify://shop_images/Mastercard.jpg",
+            "paymenticon_6": "shopify://shop_images/Rupay.jpg",
+            "paymenticon_7": "shopify://shop_images/VISA_Card.jpg"
+          }
+        },
         "share": {
           "type": "share",
+          "disabled": true,
           "settings": {
             "share_label": "Share"
           }
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "price",
         "variant_picker",
-        "judge_me_reviews_preview_badge_wpUxnm",
+        "custom_liquid_UxPPRd",
+        "custom_liquid_Fi3FtY",
+        "inventory_winwPz",
         "quantity_selector",
         "buy_buttons",
         "collapsible_tab_KqKb6F",
         "description",
         "collapsible_tab_fPX8Ux",
         "collapsible_tab_48mykV",
+        "icon_with_text_GrtePn",
+        "payment_icons_gm_VJ3VxT",
         "share"
       ],
       "settings": {
@@ -157,9 +204,9 @@
         "columns_desktop": 4,
         "columns_mobile": "2",
         "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "image_shape": "blob",
+        "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
         "padding_top": 36,

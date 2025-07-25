@@ -103,9 +103,10 @@
       </div>
       <div class="price__sale">
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-        <span class="price-item price-item--sale">
-          {{ money_price }}
-        </span>
+     <span class="price-item price-item--sale" style="color: #f1613c;">
+  {{ money_price }}
+</span>
+
         {%- unless product.price_varies == false and product.compare_at_price_varies %}
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
           <span class="compare-price">
@@ -134,7 +135,7 @@
         </span>
       </small>
     </div>
-    {%- if show_badges -%}
+    <!-- {%- if show_badges -%}
       <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
         {{ 'products.product.on_sale' | t }}
       </span>
@@ -142,6 +143,21 @@
       <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
         {{ 'products.product.sold_out' | t }}
       </span>
-    {%- endif -%}
+    {%- endif -%} -->
+    {%- if show_badges -%}
+  {%- if compare_at_price > price -%}
+    {% assign amount_saved = compare_at_price | minus: price %}
+    <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+      Save {{ amount_saved | money }}
+    </span>
+  {%- endif -%}
+
+  {%- unless available -%}
+    <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
+      {{ 'products.product.sold_out' | t }}
+    </span>
+  {%- endunless -%}
+{%- endif -%}
+
   </div>
 {% endunless %}

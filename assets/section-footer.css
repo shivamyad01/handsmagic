@@ -506,3 +506,88 @@
     }
   }
 }
+/* Mobile View - Collapsible Menu */
+@media screen and (max-width: 749px) {
+  /* Collapsible menu toggle for mobile */
+  .mobile-collapsible summary {
+    font-size: 16px;
+    color: inherit;
+    text-decoration: underline;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;  /* Removes bullet points */
+    padding-left: 0;   
+  }
+
+  .footer-menu-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1px;
+    display: none;  /* Initially hide the menu */
+  }
+
+  .footer-menu-list li {
+    margin: 5px 0;
+  }
+
+  .footer-menu-list a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .footer-menu-list a:hover {
+    text-decoration: underline;
+  }
+
+  /* When the details tag is open, show the menu */
+  details[open] .footer-menu-list {
+    display: block;  /* Show the menu when details tag is open */
+  }
+
+  .footer-menu-collapsible {
+    margin-bottom: 10px;  /* Space between collapsible items */
+  }
+
+  /* Change the icon when the menu is expanded */
+  details[open] .toggle-icon {
+    content: "-";  /* Change icon to minus */
+  }
+
+  /* Hide the desktop structure */
+  .desktop-static {
+    display: none; /* Hide on mobile */
+  }
+}
+
+/* Desktop View - Static Menu */
+@media screen and (min-width: 750px) {
+  /* On desktop, the summary is hidden (no collapsible behavior) */
+  .mobile-collapsible summary {
+    display: none;  /* Hide the collapsible button on desktop */
+  }
+
+  .footer-menu-list {
+    display: block;  /* Always show the menu on desktop */
+    list-style: none;  /* Removes bullet points */
+    padding-left: 0; 
+  }
+
+  /* Keep the icon as '+' on desktop */
+  details[open] .toggle-icon {
+    content: "+";  /* Keep the plus icon on desktop */
+  }
+
+  /* Always show the desktop structure */
+  .desktop-static {
+    display: block; /* Show on desktop */
+  }
+
+  /* Disable collapsibility behavior */
+  .footer-menu-collapsible {
+    display: block; /* Always expanded on desktop */
+  }
+}
+

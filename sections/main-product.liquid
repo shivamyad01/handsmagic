@@ -191,6 +191,27 @@
                     {%- endif -%}
                   {%- endif -%}
                 </p>
+                            <!-- Star code for payment icons -->
+
+         {% when 'payment-icons-gm' %}
+              {% render 'payment-icons-gm', 
+                    paymenticons_headingtext: block.settings.paymenticons_headingtext,
+                    fontsize_desktop: block.settings.fontsize_desktop,
+                    fontsize_mobile: block.settings.fontsize_mobile,  
+                    paymenticon_width: block.settings.paymenticon_width,
+                    image_gap: block.settings.image_gap,
+                    image_gapmobile: block.settings.image_gapmobile,
+                    paymenticon_widthmobile: block.settings.paymenticon_widthmobile,
+                    paymenticon_1: block.settings.paymenticon_1,
+                    paymenticon_2: block.settings.paymenticon_2 ,
+                    paymenticon_3: block.settings.paymenticon_3 ,
+                    paymenticon_4: block.settings.paymenticon_4,
+                    paymenticon_5: block.settings.paymenticon_5 ,
+                    paymenticon_6: block.settings.paymenticon_6 ,
+                    paymenticon_7: block.settings.paymenticon_7 
+              %}
+              
+               <!-- End code for payment icons -->
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
@@ -850,6 +871,114 @@
           "id": "show_inventory_quantity",
           "label": "t:sections.main-product.blocks.inventory.settings.show_inventory_quantity.label",
           "default": true
+        }
+      ]
+    },
+      {
+      "type": "payment-icons-gm",
+      "name": "Payment Icons GM",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "paymenticons_headingtext",
+          "label": "Heading Text",
+          "default": "Checkout safely using your preferred payment method"
+        },
+        {
+          "type": "range",
+          "id": "fontsize_desktop",
+          "label": "Fontsize",
+          "min": 0.2,
+          "max": 3,
+          "step": 0.2,
+          "default": 2,
+          "unit": "rem"
+        },
+         {
+          "type": "range",
+          "id": "fontsize_mobile",
+          "label": "Fontsize Mobile",
+          "min": 0.2,
+          "max": 3,
+          "step": 0.2,
+          "default": 1,
+          "unit": "rem"
+        },
+        {
+          "type": "range",
+          "id": "paymenticon_width",
+          "label": "Image Width",
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "default": 4,
+          "unit": "rem"
+        },
+          {
+          "type": "range",
+          "id": "paymenticon_widthmobile",
+          "label": "Image Width Mobile",
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "default": 4,
+          "unit": "rem"
+        },
+          {
+          "type": "range",
+          "id": "image_gap",
+          "label": "Image Gap",
+          "min": 0.1,
+          "max": 2,
+          "step": 0.1,
+          "default": 0.3,
+          "unit": "rem"
+        },
+            {
+          "type": "range",
+          "id": "image_gapmobile",
+          "label": "Image Gap Mobile",
+          "min": 0.1,
+          "max": 2,
+          "step": 0.1,
+          "default": 0.2,
+          "unit": "rem"
+        },
+        {
+          "type": "image_picker",
+          "id": "paymenticon_1",
+          "label": "Payment Icon"
+        },
+            {
+          "type": "image_picker",
+          "id": "paymenticon_2",
+          "label": "Payment Icon"
+        },
+            {
+          "type": "image_picker",
+          "id": "paymenticon_3",
+          "label": "Payment Icon"
+        },
+            {
+          "type": "image_picker",
+          "id": "paymenticon_4",
+          "label": "Payment Icon"
+        },
+            {
+          "type": "image_picker",
+          "id": "paymenticon_5",
+          "label": "Payment Icon"
+        },
+            {
+          "type": "image_picker",
+          "id": "paymenticon_6",
+          "label": "Payment Icon"
+        },
+               {
+          "type": "image_picker",
+          "id": "paymenticon_7",
+          "label": "Payment Icon"
         }
       ]
     },
