@@ -57,6 +57,7 @@
         "slide_BCafxm",
         "slide_Jwmymn"
       ],
+      "disabled": true,
       "name": "t:sections.slideshow.presets.name",
       "settings": {
         "layout": "full_bleed",
@@ -67,6 +68,70 @@
         "image_behavior": "none",
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "slideshow_custom_iiVH4D": {
+      "type": "slideshow-custom",
+      "blocks": {
+        "slideshow_4RHC8V": {
+          "type": "slideshow",
+          "settings": {
+            "desktop_image_bro": "shopify://shop_images/Hands_Magic_Desktop.jpg",
+            "mobile_image_bro": "shopify://shop_images/Hands_Magic_Mobile.jpg",
+            "banner_link_bro": ""
+          }
+        },
+        "slideshow_A7GfCz": {
+          "type": "slideshow",
+          "settings": {
+            "desktop_image_bro": "shopify://shop_images/Artboard_1_1.jpg",
+            "mobile_image_bro": "shopify://shop_images/Dal_Bari_Mobile.jpg",
+            "banner_link_bro": ""
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_4RHC8V",
+        "slideshow_A7GfCz"
+      ],
+      "name": "Custom Slideshow",
+      "settings": {}
+    },
+    "shopbycatogary_GF3b88": {
+      "type": "shopbycatogary",
+      "blocks": {
+        "category_q9CxRx": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Classic_Bari_Range.jpg",
+            "collection": "traditional-bari"
+          }
+        },
+        "category_pH4XjJ": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Premium_Bari_Range.jpg",
+            "collection": "premium-bari"
+          }
+        },
+        "category_zKCR3z": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Combo_Bari_Range.jpg",
+            "collection": "combo-pack"
+          }
+        }
+      },
+      "block_order": [
+        "category_q9CxRx",
+        "category_pH4XjJ",
+        "category_zKCR3z"
+      ],
+      "name": "Shop By Category",
+      "settings": {
+        "heading": "Shop By Category",
+        "padding_top": 12,
+        "padding_bottom": 40
       }
     },
     "collection_list_Nji6VQ": {
@@ -96,6 +161,7 @@
         "featured_collection_9wMBeQ",
         "featured_collection_aKk4pm"
       ],
+      "disabled": true,
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "Shop By Category",
@@ -105,9 +171,50 @@
         "color_scheme": "scheme-1",
         "show_view_all": false,
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "swipe_on_mobile": true,
+        "padding_top": 28,
+        "padding_bottom": 16
+      }
+    },
+    "collection_slider_e9qyDX": {
+      "type": "collection-slider",
+      "blocks": {
+        "collection_slider_MqeN9D": {
+          "type": "collection-slider",
+          "settings": {
+            "cat_img": "shopify://shop_images/MixedDalMain_2a2d11a1-628e-46f8-8877-c5d4d63fd299.jpg",
+            "cat_title": "Classic Bari",
+            "cat_link": ""
+          }
+        },
+        "collection_slider_Gccxaw": {
+          "type": "collection-slider",
+          "settings": {
+            "cat_img": "shopify://shop_images/ChannaDal.png",
+            "cat_title": "Premium Bari",
+            "cat_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_slider_MqeN9D",
+        "collection_slider_Gccxaw"
+      ],
+      "disabled": true,
+      "name": "Collection Slider Section",
+      "settings": {
+        "section_width": 83,
+        "section_width_mobile": 1,
+        "image_width_desktop": 78,
+        "image_height_desktop": 100,
+        "image_width_mobile": 72,
+        "image_height_mobile": 72,
+        "border_radius": 19,
+        "padding_top": 15,
+        "padding_bottom": 15,
+        "font_title": "serif",
+        "title_size": 1.7,
+        "title_size_mobile": 2.2
       }
     },
     "rich_text_FqKXtJ": {
@@ -139,6 +246,58 @@
         "full_width": true,
         "padding_top": 24,
         "padding_bottom": 20
+      }
+    },
+    "videoslider_UXpq6q": {
+      "type": "videoslider",
+      "blocks": {
+        "carousel_video_rPxBz8": {
+          "type": "carousel_video",
+          "settings": {
+            "media": "https://cdn.shopify.com/videos/c/o/v/aac02f182bac48eb9333780769a54f34.mp4"
+          }
+        },
+        "carousel_video_m7wrXJ": {
+          "type": "carousel_video",
+          "settings": {
+            "media": "https://cdn.shopify.com/videos/c/o/v/cb1c18e134ac4918807d309983cc76de.mp4"
+          }
+        },
+        "carousel_video_T6kEyA": {
+          "type": "carousel_video",
+          "settings": {
+            "media": "https://cdn.shopify.com/videos/c/o/v/07d2b21b72254286812649eaa5ebe5ae.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "carousel_video_rPxBz8",
+        "carousel_video_m7wrXJ",
+        "carousel_video_T6kEyA"
+      ],
+      "disabled": true,
+      "name": "Videos Slider",
+      "settings": {
+        "section_heading": "Videos Slider",
+        "heading_alignment": "center",
+        "heading_size": "medium",
+        "full_width": true,
+        "section_bg_color": "#ffffff",
+        "section_padding_top": 40,
+        "section_padding_bottom": 40,
+        "auto_slide": true,
+        "auto_slide_speed": 6000,
+        "show_arrows": true,
+        "arrow_shape": "circle",
+        "arrow_bg_color": "#000000",
+        "visible_slides": 4,
+        "visible_mobile": 1,
+        "image_shape": "circle",
+        "image_size": "small",
+        "media_size": "medium",
+        "media_design": "portrait",
+        "media_shadow": false,
+        "testimonial_name_size": 20
       }
     },
     "shoppable_video_Pmehce": {
@@ -256,8 +415,12 @@
   },
   "order": [
     "slideshow_WJhqdm",
+    "slideshow_custom_iiVH4D",
+    "shopbycatogary_GF3b88",
     "collection_list_Nji6VQ",
+    "collection_slider_e9qyDX",
     "rich_text_FqKXtJ",
+    "videoslider_UXpq6q",
     "shoppable_video_Pmehce",
     "slideshow_eL3J8T",
     "featured_collection"

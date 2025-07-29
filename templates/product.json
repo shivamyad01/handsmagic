@@ -33,8 +33,15 @@
             "custom_liquid": "<div class=\"custom-rating-wrapper\">\n  <div class=\"stars\">\n    {% for i in (1..5) %}\n      {% if i <= 4 %}\n        <svg class=\"star\" viewBox=\"0 0 24 24\" fill=\"#3cba54\" xmlns=\"http://www.w3.org/2000/svg\">\n          <path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z\"/>\n        </svg>\n      {% elsif i == 5 %}\n        <!-- Half star -->\n        <svg class=\"star\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">\n          <defs>\n            <linearGradient id=\"half\">\n              <stop offset=\"50%\" stop-color=\"#3cba54\"/>\n              <stop offset=\"50%\" stop-color=\"#e0e0e0\"/>\n            </linearGradient>\n          </defs>\n          <path fill=\"url(#half)\" d=\"M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z\"/>\n        </svg>\n      {% endif %}\n    {% endfor %}\n  </div>\n  <div class=\"verified-label\">\n    <!-- Blue circular verified check icon -->\n    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"none\" viewBox=\"0 0 24 24\" class=\"verified-check\">\n      <circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#1DA1F2\"/>\n      <path fill=\"#fff\" d=\"M10.001 13.799l-2.115-2.114-1.06 1.06 3.176 3.175 6.363-6.364-1.06-1.06-5.304 5.303z\"/>\n    </svg>\n    <span>389 verified ratings</span>\n  </div>\n</div>\n\n<style>\n.custom-rating-wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin: 12px 0;\n}\n\n.stars {\n  display: flex;\n  gap: 3px;\n}\n\n.star {\n  width: 20px;\n  height: 20px;\n}\n\n.verified-label {\n  display: flex;\n  align-items: center;\n  font-size: 15px;\n  color: #444;\n  font-weight: 500;\n}\n\n.verified-label .verified-check {\n  margin-right: 4px;\n  width: 16px;\n  height: 16px;\n}\n</style>"
           }
         },
+        "custom_liquid_pVW3r6": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"custom-icons-section\" style=\"display: flex; justify-content: center; text-align: center; padding: 15px 0; gap: 10px;\">\n  \n  <!-- Icon 1 -->\n  <div class=\"icon-block\" style=\"width: 25%;\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0907/6952/2992/files/Artboard_3_4x-8.png?v=1753443163\" alt=\"Home Made\" style=\"width: 60px; height: auto; margin-bottom: 6px;\">\n    <p style=\"font-weight: 500; font-size: 13px; margin: 0;\">Home Made</p>\n  </div>\n\n  <!-- Icon 2 -->\n  <div class=\"icon-block\" style=\"width: 25%;\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0907/6952/2992/files/Artboard_1_4x-8.png?v=1753443163\" alt=\"Rich in Protein\" style=\"width: 60px; height: auto; margin-bottom: 6px;\">\n    <p style=\"font-weight: 500; font-size: 13px; margin: 0;\">Rich in Protein</p>\n  </div>\n\n  <!-- Icon 3 -->\n  <div class=\"icon-block\" style=\"width: 25%;\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0907/6952/2992/files/Artboard_2_4x-8.png?v=1753443163\" alt=\"No Preservatives\" style=\"width: 60px; height: auto; margin-bottom: 6px;\">\n    <p style=\"font-weight: 500; font-size: 13px; margin: 0;\">No Preservatives</p>\n  </div>\n\n  <!-- Icon 4 -->\n  <div class=\"icon-block\" style=\"width: 25%;\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0907/6952/2992/files/Artboard_4_4x-8.png?v=1753443162\" alt=\"Guilt Free\" style=\"width: 60px; height: auto; margin-bottom: 6px;\">\n    <p style=\"font-weight: 500; font-size: 13px; margin: 0;\">Lump</p>\n  </div>\n\n</div>"
+          }
+        },
         "custom_liquid_Fi3FtY": {
           "type": "custom_liquid",
+          "disabled": true,
           "settings": {
             "custom_liquid": "<div class=\"viewer-count\">\n  👁️<span id=\"viewerNumber\">  </span> people watching this product now!\n</div>\n\n<style>\n  @keyframes changeViewerNumber {\n    0% {\n      content: \"95\";\n    }\n  10% {\n      content: \"85\";\n    }\n 20% {\n      content: \"90\";\n    }\n    25% {\n      content: \"92\";\n    }\n  35% {\n      content: \"102\";\n    }\n    50% {\n      content: \"109\";\n    }\n  60% {\n      content: \"81\";\n    }\n    75% {\n      content: \"89\";\n    }\n 75% {\n      content: \"97\";\n    }\n    100% {\n      content: \"110\";\n    }\n  }\n\n  .viewer-count span#viewerNumber::after {\n    content: \"X\";\n    animation: changeViewerNumber 10s infinite;\n  }\n</style>"
           }
@@ -152,6 +159,7 @@
         "price",
         "variant_picker",
         "custom_liquid_UxPPRd",
+        "custom_liquid_pVW3r6",
         "custom_liquid_Fi3FtY",
         "inventory_winwPz",
         "quantity_selector",
