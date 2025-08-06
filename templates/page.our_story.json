@@ -16,9 +16,36 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "slideshow_aWkqpq": {
+      "type": "slideshow",
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "empower_women_QWUiXR": {
+      "type": "empower-women",
+      "name": "Empower Styled",
+      "settings": {
+        "left_image": "shopify://shop_images/web_banner_Mobile_6ca3699e-d82a-44cc-a0e7-7bd73ef3385d.png",
+        "heading": "Welcome to Hands Magic – Home of Authentic Dal Bari Delights",
+        "description": "<p>At Hands Magic, we celebrate the timeless flavors of India with our signature Dal Bari — a wholesome, protein-rich delicacy made from lentils and love. Crafted using age-old recipes and premium ingredients, our Dal Bari brings you the comforting taste of home-cooked meals, perfect for every kitchen and every occasion.</p>",
+        "button_link": "",
+        "button_label": "READ MORE"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "slideshow_aWkqpq",
+    "empower_women_QWUiXR"
   ]
 }

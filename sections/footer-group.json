@@ -13,14 +13,15 @@
   "sections": {
     "ss_wave_2_BkrUjp": {
       "type": "ss-wave-2",
+      "disabled": true,
       "name": "SS - Wave #2",
       "settings": {
         "wave_height": 120,
         "wave_height_mobile": 80,
         "wave_animation": true,
         "wave_rotate": false,
-        "wave_color": "#e7e53d",
-        "background_color": "#FFFFFF",
+        "wave_color": "#f79635",
+        "background_color": "#ffffff",
         "background_gradient": "",
         "border_color": "#000000",
         "margin_top": 0,
@@ -65,18 +66,18 @@
         "link_list_DiEAeJ"
       ],
       "settings": {
-        "color_scheme": "scheme-eba62e35-2921-4e84-96c0-f6a9047f742f",
+        "color_scheme": "scheme-654cb7c1-a375-4fc7-9aca-7196e0cb601a",
         "newsletter_enable": false,
         "newsletter_heading": "",
-        "enable_follow_on_shop": true,
-        "show_social": true,
-        "enable_country_selector": true,
+        "enable_follow_on_shop": false,
+        "show_social": false,
+        "enable_country_selector": false,
         "enable_language_selector": false,
-        "payment_enable": true,
+        "payment_enable": false,
         "show_policy": false,
         "margin_top": 0,
-        "padding_top": 36,
-        "padding_bottom": 24,
+        "padding_top": 32,
+        "padding_bottom": 12,
         "copyright_text": "© 2025 | H4 Hands Magic | All Rights Reserved | Designed by <a href=\"https://epicwebservice.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Epic Web Service</a>"
       }
     }

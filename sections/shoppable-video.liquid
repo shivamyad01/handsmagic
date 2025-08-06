@@ -1,4 +1,6 @@
-
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'shoppable-video.css' | asset_url | stylesheet_tag }}
 
 <script>
   class ShoppableVideo extends HTMLElement {
@@ -427,7 +429,7 @@
 <style>
   .shoppable-video-section {
     padding: 4rem 2rem;
-    background: #f8f8f8;
+background: #ffeddb;
   }
 
   .shoppable-video__header {
@@ -452,10 +454,32 @@
   }
 
   @media screen and (max-width: 1200px) {
-    .shoppable-video__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .shoppable-video__grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem 1.5rem;
+    margin: 0 -1.5rem;
+    scrollbar-width: none;
   }
+
+  .shoppable-video__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  shoppable-video-item {
+    flex: 0 0 30%;
+    max-width: 300px;
+    margin-right: 1.5rem;
+    scroll-snap-align: start;
+  }
+
+  shoppable-video-item:last-child {
+    margin-right: 0;
+  }
+}
+
 
   @media screen and (max-width: 749px) {
     .shoppable-video__grid {

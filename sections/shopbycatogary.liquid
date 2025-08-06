@@ -1,20 +1,75 @@
 <!-- sections/shop-by-category.liquid -->
-<div class="shop-by-category-wrapper" style="background: #ffe6e1; padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+<div class="shop-by-category-wrapper" style="background: #ffeddb; padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <style>
+    .category-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .category-item {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+    }
+
+    .category-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .category-grid {
+        flex-wrap: wrap;
+      }
+
+      .category-item {
+        flex: 0 0 30%;
+        max-width: 30%;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .category-grid {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        padding-left: 1rem;
+        margin: 0 -1rem;
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .category-grid::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+      }
+
+      .category-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+        scroll-snap-align: start;
+      }
+    }
+  </style>
+
   <div class="page-width">
     {% if section.settings.heading != blank %}
-      <h2 style="text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 40px; color: #5e2b31;">
+      <h2 style="text-align: {{ section.settings.heading_align }}; font-size: {{ section.settings.heading_font_size }}px; font-weight: 700; margin-bottom: 40px; color: #5e2b31;">
         {{ section.settings.heading }}
       </h2>
     {% endif %}
 
-    <div class="category-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    <div class="category-grid">
       {% for block in section.blocks %}
-        <div class="category-item" style="width: 30%; min-width: 280px; border-radius: 12px; overflow: hidden; position: relative; text-align: center;">
+        <div class="category-item">
           {% if block.settings.collection != blank %}
             <a href="{{ block.settings.collection.url }}">
           {% endif %}
               {% if block.settings.image != blank %}
-                <img src="{{ block.settings.image | image_url: width: 600 }}" alt="Category Image" style="width: 100%; height: auto; display: block;">
+                <img src="{{ block.settings.image | image_url: width: 600 }}" alt="Category Image">
               {% endif %}
           {% if block.settings.collection != blank %}
             </a>
@@ -54,6 +109,36 @@
       "step": 4,
       "default": 40,
       "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading Font Size",
+      "min": 14,
+      "max": 60,
+      "step": 2,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Heading Alignment",
+      "default": "center",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ]
     }
   ],
   "blocks": [

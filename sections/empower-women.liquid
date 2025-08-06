@@ -1,0 +1,194 @@
+{% schema %}
+{
+  "name": "Empower Styled",
+  "tag": "section",
+  "class": "empower-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Main Image (Left)"
+    },
+    {
+      "type": "image_picker",
+      "id": "texture_top_left",
+      "label": "Top Left Texture"
+    },
+    {
+      "type": "image_picker",
+      "id": "texture_mid_right",
+      "label": "Mid Right Texture"
+    },
+    {
+      "type": "image_picker",
+      "id": "texture_bottom_right",
+      "label": "Bottom Right Texture"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A VISIONARY TEAM EMPOWERING RURAL WOMEN ACROSS INDIA"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "READ MORE"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Empower Styled",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="empower-women-wrapper">
+  {% if section.settings.texture_top_left %}
+    <img src="{{ section.settings.texture_top_left | img_url: 'medium' }}" alt="Top Left Decor" class="texture-top-left" />
+  {% endif %}
+  {% if section.settings.texture_mid_right %}
+    <img src="{{ section.settings.texture_mid_right | img_url: 'medium' }}" alt="Mid Right Decor" class="texture-mid-right" />
+  {% endif %}
+  {% if section.settings.texture_bottom_right %}
+    <img src="{{ section.settings.texture_bottom_right | img_url: 'medium' }}" alt="Bottom Right Decor" class="texture-bottom-right" />
+  {% endif %}
+
+  <div class="empower-women-content">
+    <div class="empower-left">
+      {% if section.settings.left_image %}
+        <img src="{{ section.settings.left_image | img_url: 'master' }}" alt="Empower Image" />
+      {% endif %}
+    </div>
+    <div class="empower-right">
+      <h2>{{ section.settings.heading }}</h2>
+      <div class="description">
+        {{ section.settings.description }}
+      </div>
+      {% if section.settings.button_link %}
+        <a href="{{ section.settings.button_link }}" class="read-more-btn">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+.empower-women-wrapper {
+  background-color: #386641;
+  position: relative;
+  padding: 40px 0;
+  overflow: hidden;
+  color: white;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.empower-women-content {
+  display: flex;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.empower-left {
+  flex: 1 1 50%;
+  padding: 10px;
+}
+.empower-left img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.empower-right {
+  flex: 1 1 50%;
+  padding: 20px;
+  position: relative;
+}
+
+.empower-right h2 {
+  font-size: 32px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+   color: orange;
+}
+
+.empower-right .description {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.read-more-btn {
+  color: white;
+  text-decoration: none;
+  border-bottom: 2px solid white;
+  font-weight: 600;
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
+}
+.read-more-btn:hover {
+  color: #ffd700;
+  border-color: #ffd700;
+}
+
+/* Textures */
+.texture-top-left,
+.texture-mid-right,
+.texture-bottom-right {
+  position: absolute;
+  width: 120px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+.texture-top-left {
+  top: 0;
+  left: 0;
+}
+.texture-mid-right {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.texture-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .empower-women-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .empower-right h2 {
+    font-size: 24px;
+  }
+
+  .texture-top-left,
+  .texture-mid-right,
+  .texture-bottom-right {
+    width: 80px;
+  }
+}
+</style>

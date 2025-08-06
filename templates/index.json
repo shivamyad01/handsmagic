@@ -77,7 +77,7 @@
           "type": "slideshow",
           "settings": {
             "desktop_image_bro": "shopify://shop_images/Hands_Magic_Desktop.jpg",
-            "mobile_image_bro": "shopify://shop_images/Hands_Magic_Mobile.jpg",
+            "mobile_image_bro": "shopify://shop_images/Hands_Magic_Mobile_1.jpg",
             "banner_link_bro": ""
           }
         },
@@ -85,7 +85,7 @@
           "type": "slideshow",
           "settings": {
             "desktop_image_bro": "shopify://shop_images/Artboard_1_1.jpg",
-            "mobile_image_bro": "shopify://shop_images/Dal_Bari_Mobile.jpg",
+            "mobile_image_bro": "shopify://shop_images/Dal_Bari_Mobile_1.jpg",
             "banner_link_bro": ""
           }
         }
@@ -130,122 +130,10 @@
       "name": "Shop By Category",
       "settings": {
         "heading": "Shop By Category",
-        "padding_top": 12,
-        "padding_bottom": 40
-      }
-    },
-    "collection_list_Nji6VQ": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_qyJGte": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "traditional-bari"
-          }
-        },
-        "featured_collection_9wMBeQ": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "premium-bari"
-          }
-        },
-        "featured_collection_aKk4pm": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "combo-pack"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_qyJGte",
-        "featured_collection_9wMBeQ",
-        "featured_collection_aKk4pm"
-      ],
-      "disabled": true,
-      "name": "t:sections.collection-list.presets.name",
-      "settings": {
-        "title": "Shop By Category",
-        "heading_size": "h2",
-        "image_ratio": "square",
-        "columns_desktop": 3,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 28,
-        "padding_bottom": 16
-      }
-    },
-    "collection_slider_e9qyDX": {
-      "type": "collection-slider",
-      "blocks": {
-        "collection_slider_MqeN9D": {
-          "type": "collection-slider",
-          "settings": {
-            "cat_img": "shopify://shop_images/MixedDalMain_2a2d11a1-628e-46f8-8877-c5d4d63fd299.jpg",
-            "cat_title": "Classic Bari",
-            "cat_link": ""
-          }
-        },
-        "collection_slider_Gccxaw": {
-          "type": "collection-slider",
-          "settings": {
-            "cat_img": "shopify://shop_images/ChannaDal.png",
-            "cat_title": "Premium Bari",
-            "cat_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_slider_MqeN9D",
-        "collection_slider_Gccxaw"
-      ],
-      "disabled": true,
-      "name": "Collection Slider Section",
-      "settings": {
-        "section_width": 83,
-        "section_width_mobile": 1,
-        "image_width_desktop": 78,
-        "image_height_desktop": 100,
-        "image_width_mobile": 72,
-        "image_height_mobile": 72,
-        "border_radius": 19,
-        "padding_top": 15,
-        "padding_bottom": 15,
-        "font_title": "serif",
-        "title_size": 1.7,
-        "title_size_mobile": 2.2
-      }
-    },
-    "rich_text_FqKXtJ": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_T6DdgT": {
-          "type": "heading",
-          "settings": {
-            "heading": "Cooking with Hands'Magic",
-            "heading_size": "h2"
-          }
-        },
-        "text_RyKAdE": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>From grandma’s kitchen to yours — tasty, crunchy, and hearty recipes with Hands Magic Dal Bari. Made by us, loved by you!</em></p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_T6DdgT",
-        "text_RyKAdE"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-8a72f1d3-cda3-4533-9eda-16c0958b91bb",
-        "full_width": true,
-        "padding_top": 24,
-        "padding_bottom": 20
+        "padding_top": 4,
+        "padding_bottom": 16,
+        "heading_font_size": 24,
+        "heading_align": "center"
       }
     },
     "videoslider_UXpq6q": {
@@ -344,47 +232,25 @@
         "color_scheme": "accent-1"
       }
     },
-    "slideshow_eL3J8T": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_Ldmyi8": {
-          "type": "slide",
-          "settings": {
-            "desktop_image": "shopify://shop_images/Artboard_2.jpg",
-            "mobile_image": "shopify://shop_images/Mobile.jpg",
-            "desktop_image_overlay_opacity": 100,
-            "mobile_image_overlay_opacity": 100,
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "middle-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_Ldmyi8"
-      ],
-      "name": "t:sections.slideshow.presets.name",
+    "empower_women_Twhfrd": {
+      "type": "empower-women",
+      "name": "Empower Women Section",
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "adapt_image",
-        "slider_visual": "counter",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
+        "left_image": "shopify://shop_images/Artboard_2.jpg",
+        "texture_top_left": "shopify://shop_images/d3_ele.webp",
+        "texture_mid_right": "shopify://shop_images/d3_ele.webp",
+        "texture_bottom_right": "shopify://shop_images/d3_ele.webp",
+        "heading": "Experience the Magic of Nature in Every Touch",
+        "description": "<p>HandsMagic Dalbari is a Bihar-based brand reviving traditional self-care through handcrafted, natural products. Made by rural women in Dalbari, each item reflects the purity of Bihar and supports local livelihoods with pride.</p>",
+        "button_link": "",
+        "button_label": "READ MORE"
       }
     },
     "featured_collection": {
       "type": "featured-collection",
+      "custom_css": [
+        ".full-unstyled-link {font-size: 15px; color: #000; line-height: 1.5; word-spacing: 2px; /* Adjust spacing as needed */}"
+      ],
       "settings": {
         "collection": "all-products",
         "products_to_show": 8,
@@ -395,10 +261,10 @@
         "description_style": "body",
         "columns_desktop": 4,
         "enable_desktop_slider": true,
-        "full_width": false,
+        "full_width": true,
         "show_view_all": false,
         "view_all_style": "solid",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-c0489778-ea1e-4b45-8d3f-a093dda8a5be",
         "card_gap": 36,
         "image_ratio": "portrait",
         "image_shape": "default",
@@ -417,12 +283,9 @@
     "slideshow_WJhqdm",
     "slideshow_custom_iiVH4D",
     "shopbycatogary_GF3b88",
-    "collection_list_Nji6VQ",
-    "collection_slider_e9qyDX",
-    "rich_text_FqKXtJ",
     "videoslider_UXpq6q",
     "shoppable_video_Pmehce",
-    "slideshow_eL3J8T",
+    "empower_women_Twhfrd",
     "featured_collection"
   ]
 }
